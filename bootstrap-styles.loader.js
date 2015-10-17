@@ -1,60 +1,58 @@
 
 var styles = [
-  "mixins",
+  '_variables',
+  '_mixins',
 
-  "normalize",
-  "print",
+  '_normalize',
+  '_print',
 
-  "scaffolding",
-  "type",
-  "code",
-  "grid",
-  "tables",
-  "forms",
-  "buttons",
+  '_reboot',
+  '_type',
+  '_images',
+  '_code',
+  '_tables',
+  '_forms',
+  '_buttons',
 
-  "component-animations",
-  "glyphicons",
-  "dropdowns",
-  "button-groups",
-  "input-groups",
-  "navs",
-  "navbar",
-  "breadcrumbs",
-  "pagination",
-  "pager",
-  "labels",
-  "badges",
-  "jumbotron",
-  "thumbnails",
-  "alerts",
-  "progress-bars",
-  "media",
-  "list-group",
-  "panels",
-  "wells",
-  "close",
-
-  "modals",
-  "tooltip",
-  "popovers",
-  "carousel",
-
-  "utilities",
-  "responsive-utilities"
+  '_alert',
+  '_animation',
+  '_breadcrumb',
+  '_button-group',
+  '_card',
+  '_carousel',
+  '_close',
+  '_custom-forms',
+  '_dropdown',
+  '_grid',
+  '_input-group',
+  '_jumbotron',
+  '_labels',
+  '_list-group',
+  '_media',
+  '_modal',
+  '_nav',
+  '_navbar',
+  '_pager',
+  '_pagination',
+  '_popover',
+  '_progress',
+  '_responsive-embed',
+  '_tooltip',
+  '_utilities-responsive',
+  '_utilities-spacing',
+  '_utilities'
 ];
 
 module.exports = function (content) {
   this.cacheable(true);
   var config = this.exec(content, this.resourcePath);
   var start =
-      "@import          \"~bootstrap/less/variables.less\";\n"
-    + "@icon-font-path: \"~bootstrap/fonts/\";\n"
-    + "@import          \"./bootstrap.config.less\";\n";
+      "@import          \"~bootstrap/scss/_variables.scss\";\n"
+    + "@import          \"./bootstrap.config.scss\";\n";
   source = start + styles.filter(function (style) {
     return config.styles[style];
   }).map(function (style) {
-    return "@import \"~bootstrap/less/" + style + ".less\";";
+    return "@import \"~bootstrap/scss/" + style + ".scss\";";
   }).join("\n");
   return source;
-}
+};
