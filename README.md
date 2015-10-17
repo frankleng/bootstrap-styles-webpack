@@ -5,6 +5,7 @@ forked from [bootstrap-webpack](https://github.com/gowravshekar/bootstrap-webpac
 
 ### Usage
 Same as bootstrap-webpack
+
 Modify your webpack entry:
 ```
   entry: {
@@ -15,5 +16,6 @@ Modify your webpack entry:
   }
 ```
 Since Bootstrap 4 removed the glyphicons, I'm using font-awesome as replacement.
+
 No JS support for now since I'm using React and do not feel the need to introduce dependencies on JQuery.
 Happy to accept PR for it though.
