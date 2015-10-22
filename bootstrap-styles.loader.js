@@ -1,6 +1,4 @@
-
 var styles = [
-  '_variables',
   '_mixins',
 
   '_normalize',
@@ -40,19 +38,21 @@ var styles = [
   '_tooltip',
   '_utilities-responsive',
   '_utilities-spacing',
-  '_utilities'
+  '_utilities',
+  'bootstrap-grid',
+  'bootstrap-reboot'
 ];
 
 module.exports = function (content) {
   this.cacheable(true);
   var config = this.exec(content, this.resourcePath);
   var start =
-      "@import          \"~bootstrap/scss/_variables.scss\";\n"
+    "@import          \"~bootstrap/scss/_variables.scss\";\n"
     + "@import          \"./bootstrap.config.scss\";\n";
   source = start + styles.filter(function (style) {
-    return config.styles[style];
-  }).map(function (style) {
-    return "@import \"~bootstrap/scss/" + style + ".scss\";";
-  }).join("\n");
+      return config.styles[style];
+    }).map(function (style) {
+      return "@import \"~bootstrap/scss/" + style + ".scss\";";
+    }).join("\n");
   return source;
 };
