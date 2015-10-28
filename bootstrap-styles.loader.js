@@ -46,13 +46,14 @@ var styles = [
 module.exports = function (content) {
   this.cacheable(true);
   var config = this.exec(content, this.resourcePath);
+  var bootstrapDir = config.bootstrapDir || 'bootstrap';
   var start =
-    "@import          \"~bootstrap/scss/_variables.scss\";\n"
+    "@import          \"~" + bootstrapDir + "/scss/_variables.scss\";\n"
     + "@import          \"./bootstrap.config.scss\";\n";
   source = start + styles.filter(function (style) {
       return config.styles[style];
     }).map(function (style) {
-      return "@import \"~bootstrap/scss/" + style + ".scss\";";
+      return "@import \"~" + bootstrapDir + "/scss/" + style + ".scss\";";
     }).join("\n");
   return source;
 };

@@ -1,4 +1,5 @@
 module.exports = {
+  bootstrapDir: 'bootstrap',
   styles: {
     '_alert': true,
     '_animation': true,
